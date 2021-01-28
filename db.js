@@ -17,5 +17,5 @@ client.connect(function (err) {
 
     const db = client.db(dbName);
 
-    client.close();
+    // client.close();
 });
