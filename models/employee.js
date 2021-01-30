@@ -1,12 +1,13 @@
 const mongoose = require('mongoose')
+const { Schema } = mongoose
 
-var Employee = mongoose.model('Employee', {
-    name: { type: String },
-    position: { type: String },
-    office: { type: String },
-    salary: { type: String }
-}, 'emp')
+const employeeSchema = new Schema({
+    name: String,
+    position: String,
+    office: String,
+    salary: String
+})
 
-module.exports = {
-    Employee
-}
+const Employee = mongoose.model('Employee', employeeSchema)
+
+module.exports = { Employee }
