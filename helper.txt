@@ -1,0 +1,6 @@
+{
+    "name": "Random Person",
+    "position": "Full Stack Engineer",
+    "office": "USA",
+    "salary": 80000
+}
