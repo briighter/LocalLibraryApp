@@ -4,6 +4,8 @@ import { NgForm } from '@angular/forms';
 
 import { EmployeeService } from "../shared/employee.service";
 
+declare var M: any
+
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
@@ -30,8 +32,11 @@ export class EmployeeComponent implements OnInit {
     }
   }
 
-  onSubmit() {
-
+  onSubmit(form: NgForm) {
+    this.employeeService.postEmployee(form.value).subscribe((res)=> {
+      this.resetForm(form)
+      M.toast({html: 'Saved successfully!', classess: 'rounded'})
+    })
   }
 
 }
