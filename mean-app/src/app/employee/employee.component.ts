@@ -39,17 +39,16 @@ export class EmployeeComponent implements OnInit {
       this.employeeService.postEmployee(form.value).subscribe((res) => {
         this.resetForm(form)
         this.refreshEmployeeList()
-        M.toast({ html: 'Saved successfully!', classess: 'rounded' })
+        M.toast({ html: 'Saved successfully', classes: 'rounded' })
       })
-    } 
+    }
     else {
       this.employeeService.putEmployee(form.value).subscribe((res) => {
         this.resetForm(form)
         this.refreshEmployeeList()
-        M.toast({ html: 'Saved successfully!', classess: 'rounded' })
+        M.toast({ html: 'Updated successfully', classes: 'rounded' })
       })
     }
-
   }
 
   refreshEmployeeList() {

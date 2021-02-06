@@ -14,7 +14,7 @@ import { Employee } from "./employee.model";
 export class EmployeeService {
   selectedEmployee: Employee
   employees: Employee[]
-  readonly baseUrl = 'http://localhost:3000/employees/'
+  readonly baseUrl = 'http://localhost:3000/employees'
   
   constructor( private http: HttpClient) { }
 
