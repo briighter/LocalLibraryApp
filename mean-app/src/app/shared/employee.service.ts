@@ -26,4 +26,8 @@ export class EmployeeService {
     return this.http.get(this.baseUrl)
   }
 
+  putEmployee(emp: Employee) {
+    return this.http.put(this.baseUrl + `/${emp._id}`, emp)
+  }
+
 }
