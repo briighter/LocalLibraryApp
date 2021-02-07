@@ -34,7 +34,7 @@ router.post('/', (req, res) => {
     })
 })
 
-router.post('/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with the given id: ${req.params.id}`)
 
