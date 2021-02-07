@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { Observable } from 'rxjs';
+import { Observable, VirtualTimeScheduler } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 // import 'rxjs/add/operator/map'
@@ -28,6 +28,10 @@ export class EmployeeService {
 
   putEmployee(emp: Employee) {
     return this.http.put(this.baseUrl + `/${emp._id}`, emp)
+  }
+
+  deleteEmployee(_id: string) {
+    return this.http.delete(this.baseUrl + `/${_id}`)
   }
 
 }

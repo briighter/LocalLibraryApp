@@ -43,6 +43,7 @@ export class EmployeeComponent implements OnInit {
       })
     }
     else {
+      console.log(form.value)
       this.employeeService.putEmployee(form.value).subscribe((res) => {
         this.resetForm(form)
         this.refreshEmployeeList()
@@ -59,6 +60,16 @@ export class EmployeeComponent implements OnInit {
 
   onEdit(emp: Employee) {
     this.employeeService.selectedEmployee = emp
+  }
+
+  onDelete(_id: string, form: NgForm) {
+    if(confirm('Are you sure you want to delete this record?') == true) {
+      this.employeeService.deleteEmployee(_id).subscribe((res) => {
+        this.refreshEmployeeList()
+        this.resetForm(form)
+        M.toast({ html: 'Deleted successfully', classes: 'rounded' })
+      })
+    }
   }
 
 }
