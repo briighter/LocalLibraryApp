@@ -3,6 +3,7 @@ var router = express.Router();
 
 var userCtrl = require('./usersController')
 
+/** User Routes */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
