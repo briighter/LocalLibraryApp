@@ -9,15 +9,15 @@ router.get('/', function(req, res, next) {
 });
 
 /* Read Users */
-router.get('/users', userCtrl.user_list);
+router.get('/all', userCtrl.user_list);
 
 /* Read Single User */
 router.get('/user/:id', userCtrl.user_detail);
 
-router.get('/user/create', userCtrl.createUser);
+router.get('/user/create', userCtrl.user_create_post);
 
-router.patch('/user/:id/update', userCtrl.updateUser);
+router.patch('/user/:id/update', userCtrl.user_update_post);
 
-router.delete('/user/:id/delete', userCtrl.deleteUser);
+router.delete('/user/:id/delete', userCtrl.user_delete_post);
 
 module.exports = router;
