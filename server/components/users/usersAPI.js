@@ -14,7 +14,7 @@ router.get('/all', userCtrl.user_list);
 /* Read Single User */
 router.get('/user/:id', userCtrl.user_detail);
 
-router.get('/user/create', userCtrl.user_create_post);
+router.post('/user/create', userCtrl.user_create_post);
 
 router.patch('/user/:id/update', userCtrl.user_update_post);
 

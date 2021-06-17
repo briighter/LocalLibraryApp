@@ -8,6 +8,7 @@ async function run() {
     try {
         await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
+        console.log("Connected to server...")
         //Get the default connection
         var db = mongoose.connection;
         //Bind connection to error event (to get notification of connection errors)

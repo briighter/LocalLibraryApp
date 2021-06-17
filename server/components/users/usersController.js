@@ -1,10 +1,13 @@
 const User = require('./user')
 const { userService } = require('./usersService')
 
-var User = new User
 // Display list of all Users.
-exports.user_list = function (req, res) {
-    res.send('NOT IMPLEMENTED: User list');
+exports.user_list = async function (req, res) {
+    User.find({}, function (err, users) {
+        if (err) return handleError(err);
+        console.log("Read all users")
+        res.end()
+    }).exec()
 };
 
 // Display detail page for a specific User.
@@ -19,7 +22,12 @@ exports.user_create_get = function (req, res) {
 
 // Handle User create on POST.
 exports.user_create_post = function (req, res) {
-    res.send('NOT IMPLEMENTED: User create POST');
+    User.create(req.body, function (err, user) {
+        if (err) handleError(err)
+        console.log("Created new user...")
+        // res.send(req.body)
+
+    })
 };
 
 // Display User delete form on GET.
