@@ -14,6 +14,12 @@ router.get('/all', userCtrl.user_list);
 /* Read Single User */
 router.get('/user/:id', userCtrl.user_detail);
 
+router.get('/user/:userId/book/:bookId', function (req, res) {
+  // Access userId via: req.params.userId
+  // Access bookId via: req.params.bookId
+  res.send(req.params);
+})
+
 router.post('/user/create', userCtrl.user_create_post);
 
 router.patch('/user/:id/update', userCtrl.user_update_post);
