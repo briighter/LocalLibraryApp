@@ -3,10 +3,10 @@ var mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
-  firstName:  String,
+  firstName: String,
   lastName: String,
   email: String,
-  roles:   [{ role: String }],
+  roles: [String],
   dateJoined: { type: Date, default: Date.now }
 });
 

@@ -6,8 +6,8 @@ exports.user_list = async function (req, res) {
     User.find({}, function (err, users) {
         if (err) return handleError(err);
         console.log("Read all users")
-        res.end()
-    }).exec()
+        res.send(users)
+    })
 };
 
 // Display detail page for a specific User.
@@ -23,9 +23,11 @@ exports.user_create_get = function (req, res) {
 // Handle User create on POST.
 exports.user_create_post = function (req, res) {
     User.create(req.body, function (err, user) {
-        if (err) handleError(err)
+        if (err) return handleError(err)
         console.log("Created new user...")
-        // res.send(req.body)
+        console.log(req.body)
+
+        res.send(req.body)
 
     })
 };
