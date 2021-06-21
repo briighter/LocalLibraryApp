@@ -1,4 +1,5 @@
-var Book = require('../models/book');
+var Book = require('./book');
+const { body,validationResult } = require('express-validator');
 
 exports.index = function (req, res) {
     res.send('NOT IMPLEMENTED: Site Home Page');
