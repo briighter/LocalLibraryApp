@@ -3,8 +3,10 @@ const { body,validationResult } = require('express-validator');
 
 // Display list of all BookInstances.
 exports.bookinstance_list = function (req, res) {
-    res.send('NOT IMPLEMENTED: BookInstance list');
-};
+    BookInstance.find({}, function (err, bookInstance) {
+        if (err) { return next(err); }
+        res.send(bookInstance)
+    });};
 
 // Display detail page for a specific BookInstance.
 exports.bookinstance_detail = function (req, res) {

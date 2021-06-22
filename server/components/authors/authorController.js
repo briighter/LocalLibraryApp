@@ -1,9 +1,26 @@
 var Author = require('./author');
-const { body,validationResult } = require('express-validator');
+const { body, validationResult } = require('express-validator');
 
 // Display list of all Authors.
 exports.author_list = function (req, res) {
-    res.send('NOT IMPLEMENTED: Author list');
+    Author.find({}, function (err, authors) {
+        if (err) { return next(err); }
+
+        // if (found_authors) {
+        //     // Genre exists, redirect to its detail page.
+        //     res.redirect(found_authors.url);
+        // }
+        // else {
+
+        //     genre.save(function (err) {
+        //         if (err) { return next(err); }
+        //         // Genre saved. Redirect to genre detail page.
+        //         res.redirect(genre.url);
+        //     });
+
+        // }
+        res.send(authors)
+    });
 };
 
 // Display detail page for a specific Author.

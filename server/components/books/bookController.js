@@ -1,9 +1,9 @@
 var async = require('async');
+var BookInstance = require('../bookInstances/bookInstance');
 
 var Book = require('./book');
 var Author = require('../authors/author');
 var Genre = require('../genres/genre');
-var BookInstance = require('../bookInstances/bookInstance');
 
 const { body, validationResult } = require('express-validator');
 
