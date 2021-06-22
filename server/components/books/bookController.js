@@ -1,8 +1,33 @@
+var async = require('async');
+
 var Book = require('./book');
-const { body,validationResult } = require('express-validator');
+var Author = require('../authors/author');
+var Genre = require('../genres/genre');
+var BookInstance = require('../bookInstances/bookInstance');
+
+const { body, validationResult } = require('express-validator');
 
 exports.index = function (req, res) {
-    res.send('NOT IMPLEMENTED: Site Home Page');
+    async.parallel({
+        book_count: function (callback) {
+            Book.countDocuments({}, callback); // Pass an empty object as match condition to find all documents of this collection
+        },
+        book_instance_count: function (callback) {
+            BookInstance.countDocuments({}, callback);
+        },
+        book_instance_available_count: function (callback) {
+            BookInstance.countDocuments({ status: 'Available' }, callback);
+        },
+        author_count: function (callback) {
+            Author.countDocuments({}, callback);
+        },
+        genre_count: function (callback) {
+            Genre.countDocuments({}, callback);
+        }
+    }, function (err, results) {
+        res.render('index', { title: 'Library Catalog', error: err, data: results });
+        console.log(results)
+    })
 };
 
 // Display list of all books.

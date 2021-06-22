@@ -6,7 +6,7 @@ var genreSchema = new Schema({
     name: { type: String, required: true, minLength: 3, maxLength: 100 }
 });
 
-// Virtual for book's URL
+// Virtual for genre's URL
 genreSchema
     .virtual('url')
     .get(function () {

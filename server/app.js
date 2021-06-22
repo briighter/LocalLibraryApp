@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var db = require('./db/db')
 
+
+// Routes
 var indexRouter = require('./routes/index');
 var usersRouter = require('./components/users/usersAPI');
 var catalogRouter = require('./components/catalog/catalogAPI')
@@ -13,7 +15,7 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
