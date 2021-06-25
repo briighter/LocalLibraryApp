@@ -1,12 +1,18 @@
 // var BookInstance = require('./bookinstance');
-const { body,validationResult } = require('express-validator');
+const { body, validationResult } = require('express-validator');
 
 // Display list of all BookInstances.
-exports.bookinstance_list = function (req, res) {
-    BookInstance.find({}, function (err, bookInstance) {
-        if (err) { return next(err); }
-        res.send(bookInstance)
-    });};
+exports.bookinstance_list = function (req, res, next) {
+
+    BookInstance.find()
+        .populate('book')
+        .exec(function (err, list_bookinstances) {
+            if (err) { return next(err); }
+            // Successful, so render
+            res.render('bookinstance_list', { title: 'Book Instance List', bookinstance_list: list_bookinstances });
+        });
+
+};
 
 // Display detail page for a specific BookInstance.
 exports.bookinstance_detail = function (req, res) {
