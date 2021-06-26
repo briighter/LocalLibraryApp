@@ -1,4 +1,4 @@
-// var BookInstance = require('./bookinstance');
+var BookInstance = require('../bookInstances/bookInstance');
 const { body, validationResult } = require('express-validator');
 
 // Display list of all BookInstances.
