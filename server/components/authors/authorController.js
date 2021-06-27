@@ -2,25 +2,16 @@ var Author = require('./author');
 const { body, validationResult } = require('express-validator');
 
 // Display list of all Authors.
-exports.author_list = function (req, res) {
-    Author.find({}, function (err, authors) {
-        if (err) { return next(err); }
+exports.author_list = function (req, res, next) {
 
-        // if (found_authors) {
-        //     // Genre exists, redirect to its detail page.
-        //     res.redirect(found_authors.url);
-        // }
-        // else {
+    Author.find()
+        .sort([['family_name', 'ascending']])
+        .exec(function (err, list_authors) {
+            if (err) { return next(err); }
+            //Successful, so render
+            res.render('author_list', { title: 'Author List', author_list: list_authors });
+        });
 
-        //     genre.save(function (err) {
-        //         if (err) { return next(err); }
-        //         // Genre saved. Redirect to genre detail page.
-        //         res.redirect(genre.url);
-        //     });
-
-        // }
-        res.send(authors)
-    });
 };
 
 // Display detail page for a specific Author.
