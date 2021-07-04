@@ -7,7 +7,6 @@ var db = require('./db/db')
 var compression = require('compression');
 var helmet = require('helmet');
 
-//Test
 // Routes
 var indexRouter = require('./routes/index');
 var usersRouter = require('./components/users/usersAPI');
