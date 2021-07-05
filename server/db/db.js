@@ -2,8 +2,10 @@
 var mongoose = require('mongoose');
 
 //Set up default mongoose connection
-var dev_uri = 'mongodb+srv://admin:dVbKLfv7nGQlVHh9@cluster0.ucpvo.mongodb.net/localLibrary?retryWrites=true&w=majority';
-var uri = process.env.MONGODB_URI || dev_uri;
+var uri = 'mongodb+srv://admin:@cluster0.ucpvo.mongodb.net/localLibrary?retryWrites=true&w=majority';
+if (process.env.NODE_ENV === "production") {
+    uri = process.env.MONGODB_URI;
+}
 
 async function run() {
     try {
