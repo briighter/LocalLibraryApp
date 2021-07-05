@@ -26,7 +26,6 @@ exports.index = function (req, res) {
         }
     }, function (err, results) {
         res.render('index', { title: 'Library Catalog', error: err, data: results });
-        console.log(results)
     })
 };
 
