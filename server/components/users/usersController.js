@@ -5,7 +5,8 @@ const { userService } = require('./usersService')
 exports.user_list = async function (req, res) {
     User.find({}, function (err, users) {
         if (err) return handleError(err);
-        console.log("Read all users")
+        debug('Read all users');
+
         res.send(users)
     })
 };
@@ -24,8 +25,7 @@ exports.user_create_get = function (req, res) {
 exports.user_create_post = function (req, res) {
     User.create(req.body, function (err, user) {
         if (err) return handleError(err)
-        console.log("Created new user...")
-        console.log(req.body)
+        debug("Created new user...")
 
         res.send(req.body)
 
