@@ -30,8 +30,8 @@ exports.index = function (req, res) {
 };
 
 // Display list of all Books.
-exports.book_list = function (req, res, next) {
-    Book.find({}, 'title author')
+exports.book_list = async function (req, res, next) {
+    await Book.find({}, 'title author')
         .populate('author')
         .exec(function (err, list_books) {
             if (err) { return next(err); }
