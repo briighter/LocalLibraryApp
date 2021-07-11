@@ -73,7 +73,7 @@ exports.book_detail = function (req, res, next) {
 exports.book_create_get = function (req, res, next) {
 
     // Get all authors and genres, which we can use for adding to our book.
-    async.parallel({
+    await async.parallel({
         authors: function (callback) {
             Author.find(callback);
         },
