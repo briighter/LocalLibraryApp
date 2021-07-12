@@ -34,10 +34,10 @@ exports.book_list = async function (req, res, next) {
     await Book.find({}, 'title author')
         .populate('author')
         .exec(function (err, list_books) {
-                if (err) { return next(err); }
-                //Successful, so render
-                res.render('book_list', { title: 'Book List', book_list: list_books });
-            });
+            if (err) { return next(err); }
+            //Successful, so render
+            res.render('book_list', { title: 'Book List', book_list: list_books });
+        });
 };
 
 // Display detail page for a specific book.
@@ -70,10 +70,10 @@ exports.book_detail = function (req, res, next) {
 };
 
 // Display book create form on GET.
-exports.book_create_get = function (req, res, next) {
+exports.book_create_get = async function (req, res, next) {
 
     // Get all authors and genres, which we can use for adding to our book.
-    await async.parallel({
+    async.parallel({
         authors: function (callback) {
             Author.find(callback);
         },
