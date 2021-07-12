@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node ./server/bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "workflow": "git add . && git commit -m \"Update\" && git push && git push heroku main"
   },
   "dependencies": {
     "async": "^3.2.0",
@@ -20,7 +21,7 @@
     "jade": "~1.11.0",
     "luxon": "^1.27.0",
     "mongodb": "^3.6.9",
-    "mongoose": "^5.12.13",
+    "mongoose": "^5.13.2",
     "morgan": "~1.9.1",
     "pug": "^3.0.2"
   },
