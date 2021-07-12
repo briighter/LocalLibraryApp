@@ -1,7 +1,5 @@
 //Import the mongoose module
 var mongoose = require('mongoose');
-mongoose.set('bufferCommands', false);
-mongoose.set('autoCreate', false);
 
 //Set up default mongoose connection
 var uri = 'mongodb+srv://admin:RAzIXIrKaJsGmkCA@cluster0.ucpvo.mongodb.net/localLibrary?retryWrites=true&w=majority';
