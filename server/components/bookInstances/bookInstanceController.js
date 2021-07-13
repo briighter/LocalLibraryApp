@@ -42,7 +42,7 @@ exports.bookinstance_create_get = function (req, res, next) {
         .exec(function (err, books) {
             if (err) { return next(err); }
             // Successful, so render.
-            res.render('bookinstance_form', { title: 'Create BookInstance', book_list: books });
+            res.render('bookInstance_form', { title: 'Create BookInstance', book_list: books });
         });
 
 };
